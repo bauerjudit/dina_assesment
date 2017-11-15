@@ -19,6 +19,7 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.11",
     "angular": "^1.6.6",
-    "angular-route": "^1.6.6"
+    "angular-route": "^1.6.6",
+    "angular-utils-pagination": "^0.11.1"
   }
 }

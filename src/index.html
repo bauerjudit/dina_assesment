@@ -9,13 +9,36 @@
 	<script src="../node_modules/angular/angular.js"></script>
 	<script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 	<script src="../node_modules/angular-route/angular-route.js"></script>
+	<script src="../node_modules/angular-utils-pagination/dirPagination.js"></script>
 	<script src="app.js"></script>
 	<script src="UserListFactory.js"></script>
 	<script src="UserListCtrl.js"></script>
 	
 	<body>
 		<div ng-app="Assessment" ng-controller="UserListCtrl" class="form-container">
-			<div> {{ userList }}</div>
+			<div>
+				<a>Create new user</a>
+			</div>
+			<div> 
+				<table>
+					<tr>
+						<th>Status</th>
+						<th>Last name</th>
+						<th>First name</th>
+						<th>Created at</th>
+					</tr>
+					<tr dir-paginate="user in userList | itemsPerPage: 10">	
+						<td><input type="checkbox" ng-model="user.status" ng-checked="user.status === 'active'" ng-click="changeUserStatus(user)"/></td>
+						<td>{{ user.last_name }}</td>
+						<td>{{ user.first_name }}</td>
+						<td>{{ user.created_at }}</td>
+						<td>Update</button></td>
+					</tr>
+				</table>
+
+				<dir-pagination-controls></dir-pagination-controls>
+			</div>
+
 <!-- 			<div>
 				<a ui-sref="frontpage"></a>
 			</div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Assesment', ['ui.router'])
+angular.module('Assesment', ['ui.router', 'angularUtils.directives.dirPagination'])
 	.config([ '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		//$urlRouterProvider.otherwise('/');
 		$stateProvider

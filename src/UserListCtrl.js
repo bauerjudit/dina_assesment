@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Assessment', ['ui.router'])
+angular.module('Assessment', ['ui.router', 'angularUtils.directives.dirPagination'])
 	.controller( 'UserListCtrl', 
 		['$scope', '$http',
 		function ($scope, $http) {
@@ -16,6 +16,17 @@ angular.module('Assessment', ['ui.router'])
 	        $scope.userList = response.data;
 	      });
 	    }
+
+	    $scope.changeUserStatus = function(updatedUser) {
+	    	var userId = updatedUser.id;
+
+	    	if ( updatedUser.status === false ) {
+	    		updatedUser.status = 'locked';
+	    	} else {
+	    		updatedUser.status = 'active';
+	    	}
+      		$http.put('http://js-assessment-backend.herokuapp.com/users/' + userId + '.json', updatedUser.status).then(fetchAllUsers);
+    	}
 
 	    fetchAllUsers();
 
