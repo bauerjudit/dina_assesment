@@ -1,0 +1,24 @@
+{
+  "name": "dina_assesment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bauerjudit/dina_assesment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bauerjudit/dina_assesment/issues"
+  },
+  "homepage": "https://github.com/bauerjudit/dina_assesment#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.11",
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6"
+  }
+}
