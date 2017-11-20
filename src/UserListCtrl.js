@@ -20,6 +20,7 @@ angular.module('Assessment', ['ui.router', 'angularUtils.directives.dirPaginatio
 	    	} else {
 	    		updatedUser.status = 'active'
 	    	}
+
       		$http.put('http://js-assessment-backend.herokuapp.com/users/' + userId + '.json', updatedUser);
 		}
 
