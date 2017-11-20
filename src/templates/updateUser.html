@@ -1,0 +1,11 @@
+<div>
+	<h1>Update User</h1>
+	<form>
+		<label>First name</label>
+		<input type="text" name="first_name" ng-model="$scope.user.first_name">
+		<label>Last name</label>
+		<input type="text" name="last_name" ng-model="$scope.user.last_name">
+		<input type="checkbox" ng-model="$scope.user.status"/>
+		<button ng-click="updateUser($scope.user)">Update</button>
+	</form>
+</div>

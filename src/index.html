@@ -15,40 +15,10 @@
 	
 	<body>
 		<div ng-app="Assessment" ng-controller="UserListCtrl" class="form-container">
-		<div>
-			<a ui-sref="new">Create new user</a>
-		</div>
-		<div ui-view></div>
 			<div>
-				<form>
-					<label>First name</label>
-					<input type="text" name="name" ng-model="newUser.first_name">
-					<label>Last name</label>
-					<input type="text" name="name" ng-model="newUser.last_name">
-					<input type="checkbox" ng-model="newUser.status"/>
-					<button ng-click="addNewUser(newUser)">Create</button>
-				</form>
+				<a ui-sref="new">Create new user</a>
 			</div>
-			<div> 
-				<table>
-					<tr>
-						<th>Status</th>
-						<th>Last name</th>
-						<th>First name</th>
-						<th>Created at</th>
-					</tr>
-					<tr dir-paginate="user in userList | itemsPerPage: 10">	
-						<td><input type="checkbox" ng-model="user.status" ng-checked="user.status === 'active'" ng-click="changeUserStatus(user)"/></td>
-						<td>{{ user.last_name }}</td>
-						<td>{{ user.first_name }}</td>
-						<td>{{ user.created_at }}</td>
-						<td><button ng-click="redirect()">Update</button></td>
-					</tr>
-				</table>
-			<div>
-				<dir-pagination-controls></dir-pagination-controls>
-			</div>
-			</div>
+			<div ui-view></div>
 		</div>
 	</body>
 </html>

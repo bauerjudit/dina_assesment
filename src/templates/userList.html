@@ -1,3 +1,20 @@
+<div> 
+	<table>
+		<tr>
+			<th>Status</th>
+			<th>Last name</th>
+			<th>First name</th>
+			<th>Created at</th>
+		</tr>
+		<tr dir-paginate="user in userList | itemsPerPage: 10">	
+			<td><input type="checkbox" ng-model="user.status" ng-checked="user.status === 'active'" ng-click="changeUserStatus(user)"/></td>
+			<td>{{ user.last_name }}</td>
+			<td>{{ user.first_name }}</td>
+			<td>{{ user.created_at }}</td>
+			<td><button ng-click="redirectForUpdate(user)">Update</button></td>
+		</tr>
+	</table>
 <div>
-	<a>Create new user</a>
+	<dir-pagination-controls></dir-pagination-controls>
+</div>
 </div>
