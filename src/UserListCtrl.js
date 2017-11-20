@@ -2,8 +2,8 @@
 
 angular.module('Assessment', ['ui.router', 'angularUtils.directives.dirPagination'])
 	.controller( 'UserListCtrl', 
-		['$scope', '$http',
-		function ($scope, $http) {
+		['$scope', '$http', '$state',
+		function ($scope, $http, $state) {
 		$scope.title = "Users";
 		$scope.userList = [];
 
@@ -11,13 +11,9 @@ angular.module('Assessment', ['ui.router', 'angularUtils.directives.dirPaginatio
 			var userId = updatedUser.id;
 
 	    	if ( updatedUser.status === false ) {
-	    		updatedUser.status = {
-	    			'status': 'locked'
-	    		};
+	    		updatedUser.status = 'locked'
 	    	} else {
-	    		updatedUser.status = {
-	    			'status': 'active'
-	    		};
+	    		updatedUser.status = 'active'
 	    	}
       		$http.put('http://js-assessment-backend.herokuapp.com/users/' + userId + '.json', updatedUser.status);
 		}

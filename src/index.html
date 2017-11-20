@@ -17,7 +17,8 @@
 		<div ng-app="Assessment" ng-controller="UserListCtrl" class="form-container">
 		<div>
 			<a ui-sref="new">Create new user</a>
-			</div>
+		</div>
+		<div ui-view></div>
 			<div>
 				<form>
 					<label>First name</label>
@@ -25,7 +26,7 @@
 					<label>Last name</label>
 					<input type="text" name="name" ng-model="newUser.last_name">
 					<input type="checkbox" ng-model="newUser.status"/>
-					<button ng-click="addNewUser(newUser)"></button>
+					<button ng-click="addNewUser(newUser)">Create</button>
 				</form>
 			</div>
 			<div> 
@@ -41,14 +42,13 @@
 						<td>{{ user.last_name }}</td>
 						<td>{{ user.first_name }}</td>
 						<td>{{ user.created_at }}</td>
-						<td><button>Update</button></td>
+						<td><button ng-click="redirect()">Update</button></td>
 					</tr>
 				</table>
 			<div>
 				<dir-pagination-controls></dir-pagination-controls>
 			</div>
 			</div>
-			<ui-view></ui-view>
 		</div>
 	</body>
 </html>
