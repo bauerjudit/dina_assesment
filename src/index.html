@@ -4,20 +4,29 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
-		<title>Assesment</title>
+		<title>Assessment</title>
 	</head>
 	<script src="../node_modules/angular/angular.js"></script>
-	<script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-	<script src="../node_modules/angular-route/angular-route.js"></script>
+	<script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="../node_modules/angular-utils-pagination/dirPagination.js"></script>
 	<script src="app.js"></script>
-	<script src="UserListFactory.js"></script>
 	<script src="UserListCtrl.js"></script>
+	<script src="router.js"></script>
 	
 	<body>
 		<div ng-app="Assessment" ng-controller="UserListCtrl" class="form-container">
+		<div>
+			<a ui-sref="new">Create new user</a>
+			</div>
 			<div>
-				<a>Create new user</a>
+				<form>
+					<label>First name</label>
+					<input type="text" name="name" ng-model="newUser.first_name">
+					<label>Last name</label>
+					<input type="text" name="name" ng-model="newUser.last_name">
+					<input type="checkbox" ng-model="newUser.status"/>
+					<button ng-click="addNewUser(newUser)"></button>
+				</form>
 			</div>
 			<div> 
 				<table>
@@ -32,17 +41,14 @@
 						<td>{{ user.last_name }}</td>
 						<td>{{ user.first_name }}</td>
 						<td>{{ user.created_at }}</td>
-						<td>Update</button></td>
+						<td><button>Update</button></td>
 					</tr>
 				</table>
-
+			<div>
 				<dir-pagination-controls></dir-pagination-controls>
 			</div>
-
-<!-- 			<div>
-				<a ui-sref="frontpage"></a>
 			</div>
-			<div ui-view></div> -->
+			<ui-view></ui-view>
 		</div>
 	</body>
 </html>
